@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="manifest" href="manifest.json" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon.min.css"
+			rel="stylesheet"
+		/>
+		<link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+		<title>Archery Scorer</title>
+		<script>
+			window.addEventListener('load', () => {
+				if ('serviceWorker' in navigator) {
+					navigator.serviceWorker.register('./sw.js');
+				}
+			});
+		</script>
+	</head>
+	<body data-set-preferred-mode-onload="true">
+		<div class="page-wrapper with-navbar">
+			<nav class="navbar bg-primary">
+				<div class="container justify-content-between">
+					<div class="navbar-brand text-white">Archery Scorer</div>
+					<div class="navbar-content">
+						<button
+							class="btn btn-action bg-light text-dark"
+							onclick="halfmoon.toggleDarkMode()"
+						>
+							<i class="bx bx-moon"></i>
+						</button>
+					</div>
+				</div>
+			</nav>
+
+			<div class="content-wrapper container p-20">
+				<div id="loader">
+					<div class="alert alert-primary">
+						<h4 class="alert-heading">Chargement...</h4>
+						Si dans 10 secondes, le chargement n'est pas fini, actualisez la page.<br />
+						C'est tout à fait normal, surtout si c'est la première fois que vous allez
+						sur ce site. Le navigateur doit télécharger des ressources pour utiliser
+						l'application hors ligne. Cela demande un peu de temps, c'est pour cela
+						qu'il faut récatualiser la page.
+					</div>
+				</div>
+
+				<div id="home" class="d-none">
+					<form id="create-scorer">
+						<div class="font-size-22 font-weight-bold">
+							Créer une nouvelle feuille de score
+						</div>
+
+						<div class="form-row row-eq-spacing-sm m-5">
+							<div class="col-sm">
+								<label for="volee-number" class="required">
+									Nombre de volées
+								</label>
+								<input
+									type="number"
+									class="form-control"
+									id="volee-number"
+									value="6"
+									required
+								/>
+							</div>
+							<div class="col-sm">
+								<label for="arrows-number" class="required">
+									Nombre de flèches par volée
+								</label>
+								<input
+									type="number"
+									class="form-control"
+									id="arrows-number"
+									value="6"
+									required
+								/>
+							</div>
+						</div>
+
+						<button type="submit" class="btn btn-primary btn-block btn-lg m-10">
+							Créer une nouvelle feuille de score
+						</button>
+					</form>
+
+					<form id="upload-scorer">
+						<div class="font-size-20 font-weight-bold m-t-20">
+							Charger une feuille de score depuis un fichier
+						</div>
+						<div class="custom-file m-10 text-center">
+							<input
+								type="file"
+								id="upload-file"
+								accept=".archeryscorer"
+								data-default-value="Aucun fichier choisi"
+								required
+							/>
+							<label for="upload-file" class="btn btn-block required">
+								Choisir un fichier <code>.archeryscorer</code>
+							</label>
+						</div>
+						<button class="btn btn-block btn-primary" type="submit">
+							Charger une feuille de score
+						</button>
+					</form>
+				</div>
+
+				<div id="scorer-container"></div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+		<script src="app.js" type="module" defer></script>
+	</body>
+</html>
