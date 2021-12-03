@@ -1,4 +1,4 @@
-const PREFIX = 'V3';
+const PREFIX = 'V1';
 const BASE = `${location.protocol}//${location.host}`;
 const ASSETS = [
 	`${BASE}/index.html`,
