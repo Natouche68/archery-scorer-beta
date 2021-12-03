@@ -11,6 +11,9 @@ This website uses :
 
 There is no dependicies. All is native or imported via CDN.
 
+This website is hosted on [Render](https://render.com/). You can visit this app on :  
+**[https://archery-scorer.onrender.com/](https://archery-scorer.onrender.com/)**
+
 ## Structure of a `.archeryscorer` file
 
 A `.archeryscorer` file is like a JSON file. It looks like this :

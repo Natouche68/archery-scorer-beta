@@ -18,8 +18,6 @@ const ASSETS = [
 	'https://cdn.skypack.dev/lodash.escape',
 	'https://cdn.skypack.dev/jszip',
 ];
-// See README.md for more info
-const JS_FILES = [`${BASE}/app.js`, `${BASE}/components/Scorer.js`, `${BASE}/zipcelx.js`];
 
 self.addEventListener('install', (event) => {
 	console.log('Service Worker -- Install');
@@ -29,9 +27,6 @@ self.addEventListener('install', (event) => {
 		(async () => {
 			const cache = await caches.open(PREFIX);
 			cache.addAll(ASSETS);
-			JS_FILES.forEach(async (file) => {
-				cache.put(new Request(file), await fetch(file));
-			});
 		})()
 	);
 });
