@@ -1,10 +1,16 @@
 import zipcelx from '../zipcelx.js';
 
+/**
+ * WebComponent qui définit la feuille de score.
+ */
 export default class Scorer extends HTMLElement {
 	constructor() {
 		super();
 	}
 
+	/**
+	 * Fonction lancée lorsque le composant est ajouté au DOM.
+	 */
 	connectedCallback() {
 		this.voleeNumber = this.getAttribute('volee-number');
 		this.arrowsNumber = this.getAttribute('arrows-number');
@@ -30,6 +36,10 @@ export default class Scorer extends HTMLElement {
 		});
 	}
 
+	/**
+	 * Crée le code HTML du composant.
+	 * @returns {string}
+	 */
 	createHTML() {
 		let scorerTableContent = '';
 		for (let v = 0; v < this.voleeNumber; v++) {
@@ -87,6 +97,10 @@ export default class Scorer extends HTMLElement {
         `;
 	}
 
+	/**
+	 * Met à jour le score total d'une volée indiquée et le score total du tir.
+	 * @param {number} volee Volée où l'on veut mettre à jour le score total.
+	 */
 	changeTotalScore(volee) {
 		let voleeScore = 0;
 
@@ -107,6 +121,9 @@ export default class Scorer extends HTMLElement {
 		this.querySelector('#scorer-total').innerHTML = totalScore;
 	}
 
+	/**
+	 * Crée un fichier .archeryscorer et le fait enregistrer à l'utilisateur.
+	 */
 	createScorerFile() {
 		const score = [];
 		for (let v = 0; v < this.voleeNumber; v++) {
@@ -139,6 +156,9 @@ export default class Scorer extends HTMLElement {
 		link.click();
 	}
 
+	/**
+	 * Crée un fichier .xlsx grâce à zipcelx.
+	 */
 	createXlsxFile() {
 		const date = new Date();
 
