@@ -36,15 +36,11 @@
 			</nav>
 
 			<div class="content-wrapper container p-20">
-				<div id="loader">
-					<div class="alert alert-primary">
-						<h4 class="alert-heading">Chargement...</h4>
-						Si dans 10 secondes, le chargement n'est pas fini, actualisez la page.<br />
-						C'est tout à fait normal, surtout si c'est la première fois que vous allez
-						sur ce site. Le navigateur doit télécharger des ressources pour utiliser
-						l'application hors ligne. Cela demande un peu de temps, c'est pour cela
-						qu'il faut récatualiser la page.
-					</div>
+				<div
+					id="loader"
+					class="d-flex h-full text-primary justify-content-center align-items-center"
+				>
+					<spinning-dots></spinning-dots>
 				</div>
 
 				<div id="home" class="d-none">

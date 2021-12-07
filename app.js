@@ -1,4 +1,5 @@
 import Scorer from './components/Scorer.js';
+import Loader from './components/Loader.js';
 
 console.log('---------------');
 console.log('app.js chargé');
@@ -16,6 +17,7 @@ function handleCloseScorer() {
 }
 
 loader.classList.add('d-none');
+loader.classList.remove('d-flex');
 home.classList.remove('d-none');
 
 createScorer.addEventListener('submit', (event) => {
@@ -66,3 +68,4 @@ uploadScorer.addEventListener('submit', async (event) => {
 });
 
 customElements.define('archery-scorer', Scorer);
+customElements.define('spinning-dots', Loader);

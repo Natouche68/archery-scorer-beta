@@ -1,9 +1,10 @@
-const PREFIX = 'V1';
+const PREFIX = 'V2';
 const BASE = `${location.protocol}//${location.host}`;
 const ASSETS = [
 	`${BASE}/index.html`,
 	`${BASE}/app.js`,
 	`${BASE}/components/Scorer.js`,
+	`${BASE}/components/Loader.js`,
 	`${BASE}/icons/192.png`,
 	`${BASE}/icons/512.png`,
 	`${BASE}/zipcelx.js`,
