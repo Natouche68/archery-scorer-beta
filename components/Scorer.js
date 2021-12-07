@@ -54,7 +54,9 @@ export default class Scorer extends HTMLElement {
 				scorerTableContent += /* html */ `
                     <td>
                         <input
-                            type="text"
+                            type="number"
+							min="0"
+							max="10"
                             class="form-control arrow arrow-v${v + 1}"
                             data-volee="${v + 1}"
                             ${this.score ? `value="${this.score[v][a]}"` : ''}
@@ -105,8 +107,10 @@ export default class Scorer extends HTMLElement {
 		let voleeScore = 0;
 
 		this.querySelectorAll(`.arrow-v${volee}`).forEach((element) => {
-			if (element.value !== '') {
+			if (element.value !== '' && element.value >= 0 && element.value <= 10) {
 				voleeScore += parseInt(element.value);
+			} else {
+				element.value = '';
 			}
 		});
 
