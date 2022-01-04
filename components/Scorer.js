@@ -194,7 +194,7 @@ export default class Scorer extends HTMLElement {
 				type: 'string',
 			},
 		];
-		for (let i = 0; i < this.voleeNumber; i++) {
+		for (let i = 1; i < this.voleeNumber; i++) {
 			totalTitleLine.push({
 				value: '',
 				type: 'string',
@@ -248,7 +248,7 @@ export default class Scorer extends HTMLElement {
 				type: 'string',
 			},
 		];
-		for (let i = 0; i < this.voleeNumber; i++) {
+		for (let i = 1; i < this.voleeNumber; i++) {
 			totalScoreLine.push({
 				value: '',
 				type: 'string',
