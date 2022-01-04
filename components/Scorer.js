@@ -52,12 +52,12 @@ export default class Scorer extends HTMLElement {
 
 			for (let a = 0; a < this.arrowsNumber; a++) {
 				scorerTableContent += /* html */ `
-                    <td>
+                    <td class="number-input-container">
                         <input
                             type="number"
-							min="0"
-							max="10"
-                            class="form-control arrow arrow-v${v + 1}"
+														min="0"
+														max="10"
+                            class="custom-number-input arrow arrow-v${v + 1}"
                             data-volee="${v + 1}"
                             ${this.score ? `value="${this.score[v][a]}"` : ''}
                         />
@@ -75,26 +75,43 @@ export default class Scorer extends HTMLElement {
 
 		return /* html */ `
             <div class="scorer">
-                <table class="table">
-                    <tbody>
-                        ${scorerTableContent}
-                    </tbody>
-                </table>
-                <div class="alert alert-primary m-10">
-                    <h4 class="alert-heading">Total : <span id="scorer-total">0</span></h4>
-                </div>
-                <div class="container-fluid row row-eq-spacing-sm">
-                    <div class="col-sm m-5">
-                        <button class="btn btn-primary btn-block" id="download-file">
-                            Télécharger la feuille de score
-                        </button>
-                    </div>
-                    <div class="col-sm m-5">
-                        <button class="btn btn-success btn-block" id="download-excel-file">
-                            Télécharger la feuille de score au format <code>XLSX</code>
-                        </button>
-                    </div>
-                </div>
+							<style>
+								.number-input-container {
+									padding: 3px !important;
+								}
+
+								.custom-number-input {
+									margin: 3px;
+									padding: 4px;
+									border: 1px solid gray;
+									outline: none;
+									border-radius: 3px;
+								}
+								.custom-number-input:focus {
+									border: 3px solid #1890ff;
+									margin: 0;
+								}
+							</style>
+							<table class="table">
+									<tbody>
+											${scorerTableContent}
+									</tbody>
+							</table>
+							<div class="alert alert-primary m-10">
+									<h4 class="alert-heading">Total : <span id="scorer-total">0</span></h4>
+							</div>
+							<div class="container-fluid row row-eq-spacing-sm">
+									<div class="col-sm m-5">
+											<button class="btn btn-primary btn-block" id="download-file">
+													Télécharger la feuille de score
+											</button>
+									</div>
+									<div class="col-sm m-5">
+											<button class="btn btn-success btn-block" id="download-excel-file">
+													Télécharger la feuille de score au format <code>XLSX</code>
+											</button>
+									</div>
+							</div>
             </div>
         `;
 	}

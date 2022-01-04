@@ -1,4 +1,4 @@
-const PREFIX = 'V2';
+const PREFIX = 'V3';
 const BASE = `${location.protocol}//${location.host}`;
 const ASSETS = [
 	`${BASE}/index.html`,
@@ -62,9 +62,7 @@ self.addEventListener('fetch', (event) => {
 			}
 			return fetch(event.request).then((fetchResponse) => {
 				caches.open(PREFIX).then(async (cache) => {
-					console.debug(
-						'Service Worker -- Fetch and caching new resource: ' + event.request.url
-					);
+					console.debug('Service Worker -- Fetch and caching new resource: ' + event.request.url);
 
 					cache.put(event.request, fetchResponse.clone());
 
