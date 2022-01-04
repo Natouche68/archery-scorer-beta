@@ -86,6 +86,7 @@ export default class Scorer extends HTMLElement {
 									border: 1px solid gray;
 									outline: none;
 									border-radius: 3px;
+									width: 100%;
 								}
 								.custom-number-input:focus {
 									border: 3px solid #1890ff;
